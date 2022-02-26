@@ -22,10 +22,14 @@ export default createStore({
   },
   actions: {
     async login ({ commit}, details){
-      const {email, password} = details
+      const {email, password, name } = details
+
+      console.log('mao ni ang details', details)
+
+      console.log('auth.currentUser', auth.currentUser)
 
       try{
-        await signInWithEmailAndPassword(auth, email, password)
+        await signInWithEmailAndPassword(auth, email, password, name )
       } catch(error){
         switch(error.code){
           case 'auth/user-not-found':
@@ -46,10 +50,10 @@ export default createStore({
     },
 
     async register ({ commit}, details){
-      const {email, password} = details
-
+      const {email, password, name} = details
+      console.log('detailllsss', details)
       try{
-        await createUserWithEmailAndPassword(auth, email, password)
+        await createUserWithEmailAndPassword(auth, email, password, name)
       }catch(error){
         switch(error.code){
           case 'auth/user-already-in-used':

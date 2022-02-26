@@ -3,6 +3,9 @@
         <section>
             <form class="register" @submit.prevent="register">
                 <h2>register</h2>
+             <input type="text" 
+                placeholder="Name"
+                v-model="register_form.name" />
                 <input type="email" 
                 placeholder="Email"
                 v-model="register_form.email" />
