@@ -4,11 +4,11 @@
     <div class="container">
       <ul>
         <li v-for="city in cities" :key="city.id">
-          {{ city.name }}
-          <router-link class="btn" :to="{ path: '/cities/3265dadf' }"
+          {{ city.name }}, {{city.province}}, {{city.country}} 
+          <router-link class="btn" :to="{ path: `/cities/${city.id}` }"
             >Edit
           </router-link>
-          <router-link :to="{ path: 'cities/3265dadf' }">Delete </router-link>
+          <button @click="deleteCity(city.id)">delete</button>
         </li>
       </ul>
     </div>
@@ -17,13 +17,14 @@
 
 <script>
 import citiesColRef from '../firebase/db/cities';
-import { getDocs } from 'firebase/firestore';
+import { getDocs, doc, deleteDoc } from 'firebase/firestore';
 export default {
   name: "Home",
   components: {},
   data(){
     return{
       cities: [],
+      selectedDoc: null,
     };
   },
 
@@ -39,6 +40,13 @@ export default {
         console.log(cities);
         this.cities = cities;
       },
+
+      async deleteCity(cityId){
+        let cityRef = doc(citiesColRef, cityId);
+        await deleteDoc(cityRef);
+        alert("deleted");
+        this.$router.go();
+      }
   },
 
   created(){
@@ -50,10 +58,8 @@ export default {
 <style scoped>
 ul {
   list-style-type: none;
-  display: flex;
   padding: 0;
-  width: 250px;
-  gap: 12px;
+  width: 1000px;
   border: 1px solid black;
 }
 li {
@@ -63,7 +69,7 @@ li {
   display: block;
   margin: 0 auto;
   width: min-content;
-}
+} 
 .btn {
   margin-left: 100px;
 }

@@ -12,17 +12,17 @@
 </template>
 
 <script>
-import {citiesColRef, countryColRef} from '../firebase/firebase';
+import {citiesColRef, } from '../firebase/firebase';
 import {addDoc} from 'firebase/firestore';
 
 export default {
     data(){
         return{
-            user: {
-                name: 'kurt',
-                province: 'vonn',
-                country: 'alde',
-            }
+            
+                name: null,
+                province: null,
+                country: null,
+          
         };
     },
 
@@ -32,11 +32,8 @@ export default {
         async createCity(){
             console.log("Creating Data");
             const addedDoc = await addDoc(citiesColRef, this.$data);
-            console.log('this.$data',this.$data.user.name)
-            const addedCountry = await addDoc(countryColRef, this.$data);
             alert('Document Added Successfully');
             console.log(addedDoc);
-            console.log(addedCountry);
             this.$router.push('/');
         }
 
