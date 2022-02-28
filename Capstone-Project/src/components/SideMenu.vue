@@ -1,0 +1,175 @@
+<template>
+  <div>
+    <aside
+      class="flex flex-col lg:items-center bg-white text-gray-700 shadow h-full"
+    >
+      <!-- Side Nav Bar-->
+
+
+      <ul class="flex">
+        <!-- Items Section -->
+     
+        <li class="hover:bg-gray-100 bg-gray-100 w-20 lg:w-full">
+          <a
+            href="/individual-home"
+            class="
+              h-16
+              px-6
+              flex flex
+              justify-center
+              items-center
+              lg:w-full
+              focus:text-orange-500
+            "
+          >
+            <img
+              class="h-6 w-6 mx-auto"
+              src="https://www.svgrepo.com/show/14857/website-home-page.svg"
+              alt="Home"
+            />
+          </a>
+        </li>
+
+        <li class="hover:bg-gray-100">
+          <a
+            href="/individual-home"
+            class="
+              h-16
+              px-6
+              flex flex
+              justify-center
+              items-center
+              lg:w-full
+              focus:text-orange-500
+            "
+          >
+            <img
+              class="h-6 w-6 mx-auto"
+              src="https://www.svgrepo.com/show/194568/qr-code.svg"
+              alt="svelte logo"
+            />
+          </a>
+        </li>
+
+        <li class="hover:bg-gray-100">
+          <a
+            href="/individual-health-declaration-form"
+            class="
+              h-16
+              px-6
+              flex flex
+              justify-center
+              items-center
+              lg:w-full
+              focus:text-orange-500
+            "
+          >
+            <img
+              class="h-6 w-6 mx-auto"
+              src="https://www.svgrepo.com/show/127119/human-group-with-questions-and-doubts.svg"
+              alt="svelte logo"
+            />
+          </a>
+        </li>
+
+        <li class="hover:bg-gray-100">
+          <a
+            href="/individual-update-profile"
+            class="
+              h-16
+              px-6
+              flex flex
+              justify-center
+              items-center
+              lg:w-full
+              focus:text-orange-500
+            "
+          >
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1
+							0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0
+							0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2
+							2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0
+							0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1
+							0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0
+							0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65
+							0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0
+							1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0
+							1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2
+							0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0
+							1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0
+							2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0
+							0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65
+							1.65 0 0 0-1.51 1z"
+              ></path>
+            </svg>
+          </a>
+        </li>
+         <li class="mt-auto h-16 flex items-center">
+        <!-- Action Section -->
+        <button
+          @click="logout"
+          class="
+            h-16
+            w-10
+            mx-auto
+            flex flex
+            justify-center
+            items-center
+            focus:text-orange-500
+            hover:bg-red-200
+            focus:outline-none
+          "
+        >
+          <svg
+            class="h-5 w-5 text-red-700"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </button>
+      </li>
+      </ul>
+
+     
+    </aside>
+  </div>
+</template>
+
+
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  components: {},
+
+  methods:{
+    logout(){
+      this.$router.push('/individual-login')
+    }
+  }
+});
+</script>
